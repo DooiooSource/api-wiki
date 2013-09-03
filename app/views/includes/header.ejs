@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%=title%> - Dooioo Api Wiki</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="/css/index.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+	            <a id="logo" title="Wikimapia" href="/" alt="Wikimapia Main Page"><span>dev.dooioo.com</span></a>
+	            <div class="nav-group">
+	              <a class="brand" href="http://api.dooioo.com">API <small>beta</small></a>
+	              <div class="nav-collapse collapse">
+	              	<ul class="nav main-nav">
+		                <li class="<%= navcate == "index" ? "active" : "divider-vertical" %>">
+							<a href="/">首页</a>
+						</li>
+						<li class="<%= navcate == "wendang" ? "active" : "divider-vertical" %>">
+							<a href="/wendang">文档</a>
+						</li>
+						<li class="<%= navcate == "moniqi" ? "active" : "divider-vertical" %>">
+							<a href="/moniqi">模拟器</a>
+						</li>
+					</ul>
+				    <ul class="nav auth-nav pull-right">	
+					 <% if(username) { %>
+						<li> <a href="/document/new"><i class="icon-plus"></i>发布 </a> </li>
+						<li> <a href="/logout"><i class="icon-power-off"></i> 退出</a> </li>
+						<li> <a href="#"><i class="icon-user"></i> <%= username %></a> </li>
+					<% } else {%>	
+						<li> <a href="/login"><i class="icon-user"></i> 登陆</a> </li>
+					<% } %>
+	              </ul>
+	              </div>
+	              
+	            </div>
+	        </div>
+        </div>
+      </div>

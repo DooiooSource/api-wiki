@@ -1,0 +1,25 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "*",
+	"mongoose": "*",
+	"connect-mongo": "*",
+	"connect-flash": "*",
+	"ejs": "*",
+	"underscore": "*",
+	"gzippo": "*",
+	"async": "*",
+	"forever": "*",
+	"request": "*",
+	"marked": "*",
+	"moment": "*",
+	"highlight.js": "*",
+	"view-helpers": "*",
+	"socket.io":"*"
+  }
+}
