@@ -1,20 +1,21 @@
 var async = require('async');
 var auth = require('./authorization')
 
+var users = require('../app/controllers/user');	
+var index = require('../app/controllers/index');
 
 /**
  * Expose routes
  */
 module.exports = function (app) {
 
-	var users = require('../app/controllers/user');		
+	//用户信息管理	
 	app.get('/login', users.login);
 	app.get('/logout', users.logout);
 	app.post('/session', users.session);
 	
-	var index = require('../app/controllers/index');	
-	//��ҳ
-	app.get('/',auth.requiresLogin,index.index);
+	//首页
+	app.get('/',index.index);
 		
 	/**
 	var documents = require('../app/controllers/document');
