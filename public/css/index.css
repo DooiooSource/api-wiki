@@ -46,12 +46,11 @@ span.anchor {
 }
 
 #logo {
-	background: url("/img/labs/logo.gif") no-repeat scroll 10px 0
-		transparent;
+	background: url("../imgs/logo.png") no-repeat scroll 10px 0 transparent;
 	display: block;
 	float: left;
 	height: 43px;
-	width: 180px;
+	width: 125px;
 }
 
 #logo span {
@@ -59,7 +58,7 @@ span.anchor {
 }
 
 #footer {
-	background: url("/images/footer-bg.jpg") repeat-x scroll center top transparent;
+	background: url("../imgs/footer-bg.jpg") repeat-x scroll center top transparent;
 	color: #FFFFFF;
 	font-size: 1.1em;
 	padding: 15px 0;

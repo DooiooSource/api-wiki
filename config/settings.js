@@ -1,11 +1,13 @@
 /**
  * Module dependencies.
  */
-
  var express = require('express')
    , mongoStore = require('connect-mongo')(express)
    , flash = require('connect-flash')
    , pkg = require('../package.json')
+   , ejs = require('ejs')
+   , path = require('path');
+var partials = require('express-partials');
 
  module.exports = function (app, config) {
     app.set('showStackError', true);
@@ -28,10 +30,12 @@
     }
 
     // set views path, template engine and default layout
-    app.set('views', config.root + '/app/views');
-    app.set('view engine', 'ejs');
+    app.set('views', path.join(config.root ,"/app",'/views'));
+    app.engine('.html', ejs.__express);
+    app.set('view engine', 'html');
+    app.use(partials());
 
-    app.configure(function () {
+    app.configure("all",function () {
         // expose package.json to views
         app.use(function (req, res, next) {
             res.locals.pkg = pkg;
@@ -43,7 +47,7 @@
 
         // bodyParser should be above methodOverride
         // app.use(express.bodyParser());
-        app.use(express.bodyParser({uploadDir: config.root +'/uploads'}));
+        app.use(express.bodyParser({uploadDir: config.root +'/upload'}));
         app.use(express.methodOverride());
 
         // express/mongo session storage
@@ -64,15 +68,8 @@
         // connect flash for flash messages - should be declared after sessions
         app.use(flash());
 
-        // set navcate variable default value to avoid undefined error
-        app.use(function (req, res, next) {
-          res.locals.navcate = null;
-          next()
-        })
-
         // routes should be at the last
         app.use(app.router);
-
 
     }); //~end app.configure
 

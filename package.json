@@ -20,6 +20,8 @@
 	"moment": "*",
 	"highlight.js": "*",
 	"view-helpers": "*",
-	"socket.io":"*"
+	"socket.io":"*",
+    "nodemailer": "*",
+    "express-partials":"*"
   }
 }

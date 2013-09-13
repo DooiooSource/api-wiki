@@ -1,21 +1,23 @@
 var async = require('async');
 var auth = require('./authorization')
 
-var users = require('../app/controllers/user');	
-var index = require('../app/controllers/index');
+var controllers = require('../app/controllers');
+var user = controllers.User;
+var site = controllers.Site;
 
 /**
  * Expose routes
  */
 module.exports = function (app) {
+    //首页
+    app.get('/',site.index);
 
-	//用户信息管理	
-	app.get('/login', users.login);
-	app.get('/logout', users.logout);
-	app.post('/session', users.session);
+	//用户信息管理
+	app.get('/login',  user.showLogin);
+	app.get('/logout', user.logout);
+	app.post('/login', user.login);
 	
-	//首页
-	app.get('/',index.index);
+
 		
 	/**
 	var documents = require('../app/controllers/document');

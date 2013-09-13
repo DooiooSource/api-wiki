@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% if (locals.title) { %>
+        <title><%= title %> - Dooioo Api Wiki</title>
+        <% } else { %>
+        <title>Dooioo Api Wiki</title>
+        <% } %>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="/css/index.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="wrap">
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a id="logo" title="Wikimapia" href="/" alt="Wikimapia Main Page"></a>
+                        <div class="nav-group">
+                            <a class="brand" href="http://api.dooioo.com">API
+                                <small>beta</small>
+                            </a>
+
+                            <div class="nav-collapse collapse">
+                                <ul class="nav main-nav">
+                                    <li class="<%= (locals.navcate === 'index') ? 'active' : '' %>">
+                                    <a href="/">首页</a>
+                                    </li>
+                                    <li class="<%= (locals.navcate === 'wendang') ? 'active' : '' %>">
+                                    <a href="/wendang">文档</a>
+                                    </li>
+                                    <li class="<%= (locals.navcate === 'moniqi') ? 'active' : '' %>">
+                                    <a href="/moniqi">模拟器</a>
+                                    </li>
+                                </ul>
+
+                                <ul class="nav auth-nav pull-right">
+                                    <% if(locals.username) { %>
+                                        <li><a href="/document/new"><i class="icon-plus icon-white"></i> 发布</a></li>
+                                        <li><a href="/logout"><i class="icon-off icon-white"></i> 退出</a></li>
+                                        <li>
+                                            <a href="#"><i class="icon-user icon-white"></i> <%= locals.username %></a>
+                                            <!--<div class="menu">-->
+                                                <!--<a href="/env/development"><% if(locals.env === 'development'){ %><i class="icon-ok icon-white"></i><%}%> 开发环境</a>-->
+                                                <!--<a href="/env/test"><% if(locals.env === 'test'){ %><i class="icon-ok icon-white"></i><%}%> 测试环境</a>-->
+                                                <!--<% if(locals.is_admin){ %>-->
+                                                <!--<a href="/env/production"><% if(locals.env === 'production'){ %><i class="icon-ok icon-white"></i><%}%> 正式环境</a>-->
+                                                <!--<% } %>-->
+                                            <!--</div>-->
+                                        </li>
+                                    <% } else {%>
+                                        <li><a href="/login"><i class="icon-user icon-white"></i> 登陆</a></li>
+                                    <% } %>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fixed navbar -->
+
+            <div class="container">
+                <%- body %>
+            </div>
+        </div>
+        <!--</div>-->
+        <div id="footer">
+            <div class="container">
+                <div class="span4 copyright">&copy; 2013 <a href="http://dev.dooioo.com" title="dev.dooioo.com">德佑地产 - 研发部</a>
+                </div>
+                <div class="span8 nav">
+                    <ul class="nav pull-right">
+                        <li><a href="http://dooioo.com"><i class="icon-home icon-white"></i>Dooioo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

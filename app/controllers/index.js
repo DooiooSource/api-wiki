@@ -1,7 +1,9 @@
 /**
- * ��ҳ
+ * 注册所有Controller对象
  */
 
-exports.index = function (req, res) {
-	res.render('index/index', {title: 'Login'});
-}
+//首页
+exports.Site = require('./site');
+
+//用户
+exports.User = require('./user');
