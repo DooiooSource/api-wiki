@@ -12,3 +12,5 @@ mongoose.connect (config.db, function (err) {
 //api_env
 require ('./apiEnv');
 exports.ApiEnv = mongoose.model ('ApiEnv');
+
+require()
